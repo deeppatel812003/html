@@ -1,0 +1,70 @@
+<!-- HTML CODE: -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Information</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+$.ajax({
+url: 'get_customers.php',
+dataType: 'json',
+success: function(data) {
+if (data.length > 0) {
+var table = '<table>';
+table += '<tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr>';
+$.each(data, function(index, customer) {
+table += '<tr>';
+table += '<td>' + customer.id + '</td>';
+table += '<td>' + customer.name + '</td>';
+table += '<td>' + customer.email + '</td>';
+table += '<td>' + customer.phone + '</td>';
+table += '<td>' + customer.address + '</td>';
+table += '</tr>';
+});
+table += '</table>';
+$('#customerTable').html(table);
+} else {
+$('#customerTable').html('No customers found.');
+}
+},
+error: function() {
+alert('Error loading customer data.');
+}
+});
+});
+</script>
+</head>
+<body>
+    <h1>Customer Information</h1>
+    <div id="customerTable"></div>
+    </body>
+    </html>
+  
+<!-- PHP Code: -->
+    <?php
+// Establish database connection
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "customersdb";
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check for connection errors
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+// Fetch customer data
+$sql = "SELECT * FROM customers";
+$result = $conn->query($sql);
+$customers = array();
+if ($result->num_rows > 0) {
+while ($row = $result->fetch_assoc()) {
+$customers[] = $row;
+}
+}
+// Close the database connection
+$conn->close();
+// Send the customer data as JSON response
+header('Content-Type: application/json');
+echo json_encode($customers);
+?>

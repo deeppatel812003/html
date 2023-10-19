@@ -1,0 +1,75 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url(ir2.jpg);
+    background-size: 100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+h2{
+    text-align: center;
+    padding: 20px;
+    font-family:sans-serif;
+    text-shadow: 2px 3px 4px #363030;
+}
+
+div.register{
+    background-color: rgba(255,255,255,.4);
+    width: 100%;
+    font-size: 16px;
+    border-radius: 23px;
+    border: 1px solid rgba(255,255,255,.9);
+    box-shadow: 2px 2px 3px rgba(0,0,0,.3);
+    color: black;
+    padding: 20px;
+    margin: 20px;
+}
+
+div.main{
+    width: 400px;
+    margin: 100px auto 0px auto;
+    text-align:center;
+    color: aliceblue;
+}
+label{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-style: initial;
+    font-weight: 800
+}
+
+input#name{
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    outline:0;
+    padding: 7px;
+    background-color: white;
+    box-shadow: inset 1px 1px 5px rgba(0,0,0,.3);
+}
+
+.submit a, .reset a{
+    font-family: sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+.submit, .reset{
+    background-color: rgba(198, 184, 184, 0.9);
+    color: aliceblue;
+    font-family: inherit;
+    font-size: 23px;
+    padding: 6px;
+    border-radius: 14px;
+    box-shadow: 2px 13px 22px black;
+    
+}
+.submit:hover, .reset:hover{
+    color:rgba(0,0,0,.9);
+    background-color: rgb(183, 183, 198);
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Slider</title>
+<style>
+/* Add your custom CSS styles here */
+#slider {
+position: relative;
+}
+#slider img {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: auto;
+}
+#prevBtn,
+#nextBtn {
+display: inline-block;
+margin-top: 10px;
+padding: 5px 10px;
+background-color: #333;
+color: #fff;
+cursor: pointer;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+var slideIndex = 0;
+var slides = $('#slider img');
+var totalSlides = slides.length;
+function showSlide(index) {
+slides.hide();
+slides.eq(index).fadeIn();
+}
+function slideNext() {
+slideIndex++;
+if (slideIndex >= totalSlides) {
+slideIndex = 0;
+}
+showSlide(slideIndex);
+}
+function slidePrev() {
+slideIndex--;
+if (slideIndex < 0) {
+slideIndex = totalSlides - 1;
+}
+showSlide(slideIndex);
+}
+// Show the initial slide
+showSlide(slideIndex);
+// Auto slide next every 3 seconds
+setInterval(slideNext, 3000);
+// Previous and next buttons
+$('#prevBtn').click(slidePrev);
+$('#nextBtn').click(slideNext);
+});
+</script>
+</head>
+<body>
+<div id="slider">
+<img src="penguins.jpg" alt="Image 1">
+<img src=” sparrow.jpg” alt=” Image 2”>
+<img src=”peacock.jpg” alt=”Image 3”>
+</div>
+<div id="prevBtn">Previous</div>
+<div id="nextBtn">Next</div>
+</body>
+</html>

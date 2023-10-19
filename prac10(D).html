@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+<style>
+body{
+margin-left: 550px;
+margin-top: 100px;
+}
+fieldset{
+width: 400px;
+}
+</style>
+<script>
+function validateForm() {
+var name = document.forms["myForm"]["name"].value;
+var age = document.forms["myForm"]["age"].value;
+var mobile = document.forms["myForm"]["mobile"].value;
+if (name == "") {
+alert("Name must be filled out");
+return false;
+}
+if (age == "") {
+alert("Age must be filled out");
+return false;
+}
+if (isNaN(age)) {
+alert("Age must be a number");
+return false;
+}
+if (mobile == "") {
+alert("Mobile No. must be filled out");
+return false;
+}
+if (isNaN(mobile)) {
+alert("Mobile No. must be a number");
+return false;
+}
+return true;
+}
+</script>
+</head>
+<body>
+<fieldset >
+<form name="myForm" onsubmit="return validateForm()" method="post">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name"><br><br>
+<label for="age">Age:</label>
+<input type="text" id="age" name="age"><br><br>
+<label for="mobile">Mobile No.:</label>
+<input type="text" id="mobile" name="mobile"><br><br>
+<input type="submit" value="Submit">
+</form>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<style>
+    div{
+        background-color: rgb(177, 212, 161);
+    }
+    h1{
+        color: rgb(71, 9, 56);
+    }
+    input{
+        color: rgb(41, 18, 145);
+    }
+    form{
+        color: rgb(5, 31, 54);
+    }
+</style>
+<body>
+    <div>
+        <h1>Persoal Details</h1><br>
+        <form action="form.php">
+            <input type="text" placeholder="Enter your first name">
+            <input type="text" placeholder="Enter your middle name">
+            <input type="text" placeholder="Enter your last name"><br><br>
+            <label>Gender</label>
+            <label for="Gender">
+                <input type="radio" value="Gender1" name="Gender" id="Gender1">Male
+                <label for="Gender"></label>
+                <input type="radio" value="Gender2" name="Gender" id="Gender2">Female
+            </label><br><br>
+            <label>Hobby</label>
+            <input type="checkbox" id="1" class="red" name="Cricket">
+            <label for="hobby"> Cricket</label>
+            <input type="checkbox" id="2" class="blue" name="Music">
+            <label for="hobby"> Music</label><br><br>
+            <textarea name="deep" id="deep" cols="30" rows="10" placeholder="Description"></textarea><br><br>
+            <label>Country</label>
+            <select name="country" id="country">
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Canada">Canada</option><br>
+            </select><br><br>
+            <label>Upload File</label>
+            <input type="file" accept="image.jpg"><br><br>
+            <button type="btn">Set</button>
+            <input type="Submit" value="Reset">
+            <input type="Reset" value="Submit">
+            </form>
+    </div>
+</body>
+</html>

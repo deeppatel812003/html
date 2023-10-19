@@ -1,0 +1,67 @@
+<!-- 1)auth.php -->
+<?php
+include('connection.php');
+$username = $_POST['Email'];
+$password = $_POST['Password'];
+$username = stripcslashes($username);
+$password = stripcslashes($password);
+$username = mysqli_real_escape_string($con, $username);
+$password = mysqli_real_escape_string($con, $password);
+$sql = "select *from login where email = '$username' and password = '$password'";
+$result = mysqli_query($con, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$count = mysqli_num_rows($result);
+if($count == 1){
+echo "Login successful";
+}
+else{
+echo "Login failed. Invalid username or password.";
+}
+?> 
+
+<!-- 2)Connection.php -->
+  
+<?php
+$dbhost='localhost';
+$dbusername='root';
+$dbpass='';
+$dbname='login';
+$con = mysqli_connect($dbhost,$dbusername,$dbpass,$dbname);
+if(!$con){
+    die("Connection Error");
+}
+?>
+
+
+
+
+<!-- 3)Login.php -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Login Page</title>
+</head>
+<body>
+<div class="main-container">
+<div class="container">
+<h1 class="heading">login</h1>
+<form method="POST" action="auth.php">
+<label class="lbl" for="Email">Email</label>
+<input type="email" name="Email" id="email" required>
+<label class="lbl" for="Password">Password</label>
+<input type="password" name="Password" id="password" required>
+<span><input type="checkbox" name="remember" id="remember">
+<label for="remember">remember me?</label></span>
+<input type="submit" id="submit" name="submit-btn" value="login" class="btn-submit">
+</form>
+<p>Need an account? <a href="signup.php">SIGN Up</a></p>
+</div>
+</div>
+</body>
+</html>
+

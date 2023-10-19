@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #area{
+        display: inline-block;
+        margin-left: 400px;
+        margin-right: 400px;
+        margin-top: 25vh;
+        width: 50%;
+        height: 50%;
+        background: rgb(143, 102, 238);
+    }
+    h1{
+        text-align: center;
+    }
+    #txt{
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <div id="area">
+        <h1>Current Date </h1>  
+          
+         <div id="txt"></div>
+    </div>
+
+<script>
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+</script>
+
+</body>
+</html>

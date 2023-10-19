@@ -1,0 +1,62 @@
+<!-- HTML CODE: -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Management System</title>
+</head>
+<body>
+<h1>Student Management System</h1>
+<h2>Add Student</h2>
+<form action="add_student.php" method="POST">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" required><br>
+<label for="enrolment_no">Enrolment No:</label>
+<input type="text" id="enrolment_no" name="enrolment_no" required><br>
+<label for="branch">Branch:</label>
+<input type="text" id="branch" name="branch" required><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required><br>
+<input type="submit" value="Add Student">
+</form>
+<h2>Update Student</h2>
+<form action="update_student.php" method="POST">
+<label for="update_id">Student ID:</label>
+<input type="number" id="update_id" name="update_id" required><br>
+<label for="new_name">New Name:</label>
+<input type="text" id="new_name" name="new_name" required><br>
+<input type="submit" value="Update Student">
+</form>
+<h2>Delete Student</h2>
+<form action="delete_student.php" method="POST">
+<label for="delete_id">Student ID:</label>
+<input type="number" id="delete_id" name="delete_id" required><br>
+<input type="submit" value="Delete Student">
+</form>
+<h2>Students List</h2>
+<?php include 'get_students.php'; ?>
+</body>
+</html>
+
+
+<!-- PHP CODE: -->
+<?php
+// Establish database connection
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "studentsdb";
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check for connection errors
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+// Retrieve form data
+$name = $_POST['name'];
+$enrolmentNo = $_POST['enrolment_no'];
+$branch = $_POST['branch'];
+$email = $_POST['email'];
+// Prepare and execute SQL query
+$sql = "INSERT INTO students (name, enrolment_no, branch, email) VALUES ('$name',
+'$enrolmentNo', '$branch', '$email')";
+
+
